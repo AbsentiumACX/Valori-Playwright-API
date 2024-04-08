@@ -54,4 +54,9 @@ test('Create and delete a training', async ({ academyPlannerClient }) => {
 
     const createTrainingResult = await academyPlannerClient.createNewTrainingV2(training);
     expect(createTrainingResult.status(), await createTrainingResult.text()).toBe(StatusCodes.OK);
+
+    if (createTrainingResult.status() == StatusCodes.OK) {
+        let getTrainingResult = await academyPlannerClient.getTrainingInformationByName(trainingName);
+        expect(getTrainingResult.status(), await createTrainingResult.text()).toBe(StatusCodes.OK);
+    }
 });

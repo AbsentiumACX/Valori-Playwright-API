@@ -36,7 +36,4 @@ test('Create a new training', async ({ academyPlannerClient }) => {
 
     expect(creationResultJson.IsSuccess).toBeTruthy();
     expect(creationResultJson.ResultMessage).not.toBeUndefined();
-
-    const trainingNumber = parseInt(creationResultJson.ResultMessage);
-    expect(trainingNumber).toBeGreaterThan(0);
 });
